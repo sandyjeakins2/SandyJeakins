@@ -1,0 +1,94 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Sandy Jeakins";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="origin" />
+</head>
+
+<script>
+    var youTubeWindowTitle;
+    var youTubeVideoID;
+
+    function slidespopup(title, folder) {
+        //dataType: "image/jpg",
+
+        //$.ajax({
+        //    url: folder,
+        //    success: function (data) {
+        //        alert('success');
+        //        $(data).find("a").attr("href", function (i, val) {
+        //            if (val.match(/\.(jpg)$/i)) {
+        //                $(".container").append("<img src='" + val + "'>");
+        //            }
+        //        });
+        //        var slide = document.getElementsByClassName("mySlides");
+        //        slide[slideIndex - 1].style.display = "block";
+        //    },
+        //    error: function (xhr) {
+        //        alert(xhr.status);
+        //    },
+        //    complete: function (data) {
+        //        alert('complete' + data.length);
+        //    }
+        //});
+
+        //newwindow = window.open('ImageViewer', '_blank', 'height=' + screen.height + ',width=' + screen.width + ',resizable=yes,scrollbars=0,toolbar=0,menubar=0,location=0');
+        newwindow = window.open('ImageViewer', '_blank');
+        newwindow.PageTitle = title;
+        newwindow.Folder = folder;
+        if (window.focus) { newwindow.focus() }
+    }
+
+    function youTubePopup(title, videoID) {
+        youTubeWindowTitle = title;
+        youTubeVideoID = videoID;
+        newwindow = window.open('YouTube.html', '', 'height=410,width=660,titlebar=0,toolbar=0');
+        if (window.focus) { newwindow.focus(); }
+        return false;
+    }
+</script>
+
+<div id="H1Div">
+    <h1>Sandy Jeakins</h1>
+    <h2><a href="mailto:sandyjeakins@gmail.com"><img src="/images/Email.png" style="display: inline" /></a></h2>
+</div>
+<table width="800">
+    <tr>
+        <td colspan="6">
+            <h3>Belize 2019</h3>
+            <div class="anchor" onclick="slidespopup('Belize Aggressor III', '/images/Belize2019/')">Still Photos</div>
+            <div class="anchor" onclick="return youTubePopup('Belize Aggressor III', 'DiB7k--I07o')">Belize Aggressor III Video</div>
+        </td>
+        <td colspan="6">
+            <h3>Belize 2016</h3>
+            <div class="anchor" onclick="return slidespopup('Belize Aggressor III', '/images/Belize/')">Still Photos</div>
+            <div class="anchor" onclick="return youTubePopup('Belize Aggressor III', '8Oy0hUWd9jY')">Belize Aggressor III Video</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            <h3>Cayman Islands 2017</h3>
+            <div class="anchor" onclick="return slidespopup('Cayman Islands', '/images/Cayman/')">Still Photos</div>
+            <div class="anchor" onclick="return youTubePopup('Cayman Aggressor IV', 'WZR8fbD9_8I')">Cayman Aggressor Video</div>
+        </td>
+        <td colspan="6">
+            <h3>Hawaii 2016</h3>
+            <div class="anchor" onclick="return slidespopup('Kona, Hawaii', '/images/Hawaii/')">Still Photos</div>
+            <div class="anchor" onclick="return youTubePopup('Kona Aggressor III', 'K_sfw_P91dE')">Kona Aggressor III Video</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            <h3>Bonaire 2017</h3>
+            <div class="anchor" onclick="return slidespopup('Bonaire', '/images/Bonaire/')">Still Photos</div>
+        </td>
+        <td colspan="6"></td>
+    </tr>
+    <tr>
+        <td colspan="12"></td>
+    </tr>
+</table>
