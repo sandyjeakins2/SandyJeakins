@@ -6,11 +6,40 @@
 
 <!DOCTYPE html>
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
 <script>
-    alert('here3');
+    var folder = window.Folder;
+    var pageTitle = window.PageTitle;
+
+    alert(folder);
+    alert(pageTitle);
 
     $(document).ready(function () {
         alert('here');
+
+        $.ajax({
+            url: folder,
+            success: function (data) {
+                alert('success');
+                $(data).find("a").attr("href", function (i, val) {
+                    if (val.match(/\.(jpg)$/i)) {
+                        $(".container").append("<img src='" + val + "'>");
+                    }
+                });
+                var slide = document.getElementsByClassName("mySlides");
+                slide[slideIndex - 1].style.display = "block";
+            },
+            error: function (xhr) {
+                alert(xhr.status);
+            },
+            complete: function (data) {
+                alert('complete' + data.length);
+            }
+        });
+
     });
 
 </script>
@@ -24,9 +53,6 @@
 
     <h1>Image Viewer</h1>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
 </html>
