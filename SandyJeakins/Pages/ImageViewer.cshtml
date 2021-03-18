@@ -21,7 +21,7 @@
         alert('here');
 
         $.ajax({
-            url: folder,
+            url: "/images/" + folder + "/",
             success: function (data) {
                 alert('success');
                 $(data).find("a").attr("href", function (i, val) {
